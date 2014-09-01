@@ -3,10 +3,19 @@
 <head>
 	<title>Basic angular application</title>
 	<script type="text/javascript" src="angular.js"></script>
+	<script type="text/javascript" src="app.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 <body ng-app>
-	<h1 >Hello!</h1>
-	<div ng-controller="mainController">
-		<h1>{{['Hi', 'Hello', 'Goodbye'][2]}}</h1>
+
+	<div class="container" ng-controller="mainController">
+		<div ng-repeat="hotel in hotels">
+			<div class="row">
+				<img ng-src="http://i.imgur.com/{{hotel.imgUrl}}" class="col-md-2" />
+				<div class="col-md-3">{{hotel.name}}</div>
+				<div class="col-md-7">{{hotel.location}}</div>
+			</div>
+		</div>
 	</div>
+
 </body>
 </html>
