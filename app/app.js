@@ -1,4 +1,21 @@
 function mainController($scope) {
+
+	$scope.upVote = function(hotel){
+		if ( !hotel.rating){
+			hotel.rating = 0;
+		}
+
+		hotel.rating ++;
+	}
+
+	$scope.downVote = function(hotel){
+		if ( !hotel.rating){
+			hotel.rating = 0;
+		}
+
+		hotel.rating --;
+	}
+
 	$scope.hotels = [{
 		"id": "1",
 		"name": "Taj Westend",
