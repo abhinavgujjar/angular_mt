@@ -38,9 +38,9 @@
 						<div class="row h4">{{hotel.name | uppercase}}</div>
 						<div class="row hidden-xs">
 							<span ng-show="showMore">{{hotel.description | lowercase }}</span>
-							<span ng-show="!showMore">{{hotel.description | lowercase | limitTo: 50}}</span>
+							<span ng-show="!showMore">{{hotel.description | lowercase | limitTo: descLimit}}</span>
 							<span ng-show="hotel.description.length >
-								50 && !showMore">...
+								descLimit && !showMore">...
 								<span>
 									<a href="" ng-click="showMore=true">more</a>
 								</span>
