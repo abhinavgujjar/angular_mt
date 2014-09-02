@@ -8,6 +8,11 @@ angular.module('hotelmgr').config(function($routeProvider){
 	$routeProvider.when('/create', {
 		template : '<h1>CREATE</h1>'
 	});
+
+	$routeProvider.otherwise( {
+		redirectTo : '/listing'
+	});
+
 })
 
 angular.module('hotelmgr').filter('toFeet', function() {
