@@ -5,7 +5,7 @@
 	<script type="text/javascript" src="angular.js"></script>
 	<script type="text/javascript" src="app.js"></script>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-<body ng-app>
+<body ng-app="hotelmgr">
 	<br/>
 	<br/>
 	<br/>
@@ -52,7 +52,7 @@
 									<span class="label label-success">{{hotel.price | currency}}</span>
 								</h3>
 							</div>
-							<div class="col-md-6 hidden-xs">{{hotel.area}}</div>
+							<div class="col-md-6 hidden-xs">{{hotel.area | toFeet | number : 2}}</div>
 						</div>
 					</div>
 				</div>
