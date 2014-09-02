@@ -1,0 +1,26 @@
+<div ng-controller="newController">
+	<div class="row">
+		<div class="col-md-2">Name</div>
+		<div class="col-md-4">
+			<input type="text" ng-model="hotel.name" />	
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-2">Price</div>
+		<div class="col-md-4">
+			<input type="number" ng-model="hotel.price" />	
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-2">Description</div>
+		<div class="col-md-4">
+			<textarea ng-model="hotel.description" cols="30" rows="10"></textarea>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-2"></div>
+		<div class="col-md-4">
+			<button class="btn btn-success btn-large" ng-click="addHotel(hotel)">Add</button>
+		</div>
+	</div>
+</div>

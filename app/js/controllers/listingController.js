@@ -1,4 +1,5 @@
-angular.module('hotelmgr').controller('listingController', function($scope, config, hotelsProvider, votingService) {
+angular.module('hotelmgr').controller('listingController', 
+	function($scope, config, hotelsProvider, votingService, $location) {
 
 	$scope.descLimit = config.descLimit;
 
@@ -12,4 +13,8 @@ angular.module('hotelmgr').controller('listingController', function($scope, conf
 	}
 
 	$scope.hotels = hotelsProvider.getHotels();
+
+	$scope.gotoCreate = function(){
+		$location.url('/create');
+	}
 });

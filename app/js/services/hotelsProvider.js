@@ -52,6 +52,9 @@ angular.module('hotelmgr').factory('hotelsProvider', function() {
 	var hp = {
 		getHotels: function() {
 			return hotels;
+		},
+		addHotel : function(hotel){
+			hotels.push(hotel);
 		}
 	};
 

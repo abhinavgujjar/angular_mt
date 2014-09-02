@@ -6,7 +6,7 @@ angular.module('hotelmgr').config(function($routeProvider){
 	});
 
 	$routeProvider.when('/create', {
-		template : '<h1>CREATE</h1>'
+		templateUrl : 'partials/create.html'
 	});
 
 	$routeProvider.otherwise( {
