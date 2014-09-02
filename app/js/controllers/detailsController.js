@@ -1,6 +1,10 @@
 angular.module('hotelmgr').controller('detailsController', 
-	function($scope, hotelsProvider) {
+	function($scope, hotelsProvider, $routeParams) {
 
-	$scope.hotel = hotelsProvider.getSelectedHotel();
+	var hotelId = $routeParams.hotelId;
+
+	//console.log(hotelId);
+
+	$scope.hotel = hotelsProvider.getHotel(hotelId);
 
 });

@@ -9,7 +9,7 @@ angular.module('hotelmgr').config(function($routeProvider){
 		templateUrl : 'partials/create.html'
 	});
 
-$routeProvider.when('/details', {
+$routeProvider.when('/details/:hotelId', {
 		templateUrl : 'partials/details.html'
 	});
 

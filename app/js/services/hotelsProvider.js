@@ -127,6 +127,17 @@ angular.module('hotelmgr').factory('hotelsProvider', function() {
 		},
 		getSelectedHotel : function(hotel){
 			return selectedHotel;
+		},
+		getHotel : function (hotelId){
+			var targeHotel;
+
+			angular.forEach(hotels, function(item){
+				if (item.id === hotelId){
+					targeHotel = item;
+				}
+			});
+
+			return targeHotel;
 		}
 	};
 
