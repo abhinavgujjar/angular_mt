@@ -1,16 +1,18 @@
 <div ng-controller="listingController">
-			<div class="row">
-			<div class="col-md-4">
-				<button class="btn btn-default btn-lg" ng-click="gotoCreate()">Create</button>
-			</div>
-			<div class="col-md-8">
-				<input type="text" placeholder="enter search term" ng-model="searchTerm" class="form-control" />
-			</div>
-			</div>
-			<hr/>
-			<br/>
-			<div ng-repeat="hotel in hotels | filter : searchTerm | orderBy : 'rating' : true">
-				<div class="row well">
+	<div class="row">
+		<div class="col-md-4">
+			<button class="btn btn-default btn-lg" ng-click="gotoCreate()">Create</button>
+		</div>
+		<div class="col-md-8">
+			<input type="text" placeholder="enter search term" ng-model="searchTerm" class="form-control" />
+		</div>
+	</div>
+	<hr/>
+	<br/>
+	<div ng-repeat="hotel in hotels | filter : searchTerm | orderBy : 'rating' : true">
+		<div class="well row" >
+			<div class="col-md-11">
+				<div class="row">
 					<div class="col-md-1">
 						<div>
 							<button class="btn btn-sm btn-success" ng-click="upVote(hotel)">
@@ -29,7 +31,11 @@
 					<div class="col-md-11">
 						<img ng-src="http://i.imgur.com/{{hotel.imgUrl}}" class="col-md-2 col-sm-2 img-thumbnail img-responsive" />
 						<div class="col-md-10 col-sm-10 ">
-							<div class="row h4"><a href="" ng-click="showDetails(hotel)"> {{hotel.name | uppercase}}</a></div>
+							<div class="row h4">
+								<span ng-show="!isEdit"> <a href="" ng-click="showDetails(hotel)">{{hotel.name | uppercase}}</a></span>
+								<span ng-show="isEdit"><input type="text" ng-model="hotel.name" class="form-control"></span>
+
+							</div>
 							<div class="row hidden-xs">
 								<span ng-show="showMore">{{hotel.description | lowercase }}</span>
 								<span ng-show="!showMore">{{hotel.description | lowercase | limitTo: descLimit}}</span>
@@ -47,9 +53,21 @@
 									</h3>
 								</div>
 								<div class="col-md-6 hidden-xs">{{hotel.area | toFeet | number : 2}}</div>
+
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
+			<div class="col-md-1">
+				<span ng-show="!isEdit">
+					<a href="" ng-click="isEdit=true">edit</a>
+				</span>
+				<span ng-show="isEdit">
+					<a href="" ng-click="isEdit=false">done</a>
+				</span>
+			</div>
 		</div>
+	</div>
+
+</div>
