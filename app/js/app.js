@@ -1,5 +1,14 @@
-angular.module('hotelmgr', []);
+angular.module('hotelmgr', ['ngRoute']);
 
+angular.module('hotelmgr').config(function($routeProvider){
+	$routeProvider.when('/listing', {
+		templateUrl : 'partials/listing.html'
+	});
+
+	$routeProvider.when('/create', {
+		template : '<h1>CREATE</h1>'
+	});
+})
 
 angular.module('hotelmgr').filter('toFeet', function() {
 	return function(input) {
