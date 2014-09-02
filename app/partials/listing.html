@@ -10,7 +10,7 @@
 			<hr/>
 			<br/>
 			<div ng-repeat="hotel in hotels | filter : searchTerm | orderBy : 'rating' : true">
-				<div class="row">
+				<div class="row well">
 					<div class="col-md-1">
 						<div>
 							<button class="btn btn-sm btn-success" ng-click="upVote(hotel)">
@@ -27,9 +27,9 @@
 						</div>
 					</div>
 					<div class="col-md-11">
-						<img ng-src="http://i.imgur.com/{{hotel.imgUrl}}" class="col-md-2 col-sm-2 img-thumbnail" />
+						<img ng-src="http://i.imgur.com/{{hotel.imgUrl}}" class="col-md-2 col-sm-2 img-thumbnail img-responsive" />
 						<div class="col-md-10 col-sm-10 ">
-							<div class="row h4">{{hotel.name | uppercase}}</div>
+							<div class="row h4"><a href="" ng-click="showDetails(hotel)"> {{hotel.name | uppercase}}</a></div>
 							<div class="row hidden-xs">
 								<span ng-show="showMore">{{hotel.description | lowercase }}</span>
 								<span ng-show="!showMore">{{hotel.description | lowercase | limitTo: descLimit}}</span>

@@ -8,6 +8,12 @@ angular.module('hotelmgr').controller('listingController',
 		votingService.upVote(hotel);
 	}
 
+	$scope.showDetails = function(hotel){
+		hotelsProvider.setSelectedHotel ( hotel);
+
+		$location.url('/details');
+	}
+
 	$scope.downVote = function(hotel) {
 		votingService.downVote(hotel);
 	}
