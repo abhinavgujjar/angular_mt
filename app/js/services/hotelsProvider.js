@@ -1,41 +1,7 @@
-angular.module('hotelmgr', []);
 
-angular.module('hotelmgr').controller('mainController', function($scope, config, hotelsProvider) {
+angular.module('hotelmgr').factory('hotelsProvider', function() {
 
-	$scope.descLimit = config.descLimit;
-
-	$scope.upVote = function(hotel) {
-		if (!hotel.rating) {
-			hotel.rating = 0;
-		}
-
-		hotel.rating++;
-	}
-
-	$scope.downVote = function(hotel) {
-		if (!hotel.rating) {
-			hotel.rating = 0;
-		}
-
-		hotel.rating--;
-	}
-
-	$scope.hotels = hotelsProvider.getHotels();
-});
-
-angular.module('hotelmgr').filter('toFeet', function() {
-	return function(input) {
-		return input * 10.7639
-	}
-})
-
-angular.module('hotelmgr').value('config', {
-	descLimit: 300
-});
-
-angular.module('hotelmgr').factory('hotelsProvider', function(){
-
-	var hotels =  [{
+	var hotels = [{
 		"id": "1",
 		"name": "Taj Westend",
 		"price": 17000,
@@ -83,8 +49,8 @@ angular.module('hotelmgr').factory('hotelsProvider', function(){
 		"area": 198000
 	}];
 
-	var hp =  {
-		getHotels : function(){
+	var hp = {
+		getHotels: function() {
 			return hotels;
 		}
 	};
