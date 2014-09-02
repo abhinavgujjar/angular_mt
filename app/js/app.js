@@ -22,6 +22,6 @@ angular.module('hotelmgr').filter('toFeet', function() {
 })
 
 angular.module('hotelmgr').value('config', {
-	descLimit: 300
+	descLimit: 50
 });
 

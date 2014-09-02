@@ -1,26 +1,42 @@
 <div ng-controller="newController">
-	<div class="row">
-		<div class="col-md-2">Name</div>
-		<div class="col-md-4">
-			<input type="text" ng-model="hotel.name" />	
+
+	<style type="text/css">
+		input.ng-dirty.ng-invalid {
+			background-color: pink
+		}
+
+		input.ng-pristine.ng-invalid {
+			border-color: red
+		}
+
+	</style>
+	<form class="form-horizontal" name="hotelsForm" role="form">
+		<div class="form-group">
+			<label class="col-md-2 control-label">Name</label>
+			<div class="col-md-4">
+				<input type="text" class="form-control" name='uName' ng-model="hotel.name" required />
+			</div>
+			<span class="col-md-6 text-danger" ng-show="hotelsForm.uName.$invalid">Dude ! You really need to fill this!</span>
 		</div>
-	</div>
-	<div class="row">
-		<div class="col-md-2">Price</div>
-		<div class="col-md-4">
-			<input type="number" ng-model="hotel.price" />	
+		<div class="form-group">
+			<label class="col-md-2 control-label">Price</label>
+			<div class="col-md-4">
+				<input type="number" ng-model="hotel.price" name="uPrice" min="1000" max="30000" class="form-control" required />
+			</div>
+			<div class="col-md-1" ng-show="hotelsForm.uPrice.$valid">
+				<h2><span class="glyphicon glyphicon-check text-success"></span></h2>
+			</div>
 		</div>
-	</div>
-	<div class="row">
-		<div class="col-md-2">Description</div>
-		<div class="col-md-4">
-			<textarea ng-model="hotel.description" cols="30" rows="10"></textarea>
+		<div class="form-group">
+			<label class="col-md-2 control-label">Name</label>
+			<div class="col-md-4">
+				<textarea ng-model="hotel.description" cols="30" rows="10" class="form-control"></textarea>
+			</div>
 		</div>
-	</div>
-	<div class="row">
-		<div class="col-md-2"></div>
-		<div class="col-md-4">
-			<button class="btn btn-success btn-large" ng-click="addHotel(hotel)">Add</button>
+		<div class="form-group">
+			<div class="col-md-offset-2 col-md-4 pull-right">
+				<button class="btn btn-success btn-large" ng-disabled="hotelsForm.$invalid" ng-click="addHotel(hotel)">Add</button>
+			</div>
 		</div>
-	</div>
+	</form>
 </div>
