@@ -25,9 +25,20 @@ angular.module('hotelmgr').filter('toFeet', function() {
 	}
 })
 
+angular.module('hotelmgr').filter('paginate', function() {
+	return function(list, pageNumber) {
+		return list.slice(pageNumber, 4);
+	}
+})
+
 angular.module('hotelmgr').value('config', {
 	descLimit: 50
 });
+
+angular.module('hotelmgr').value('parseHeaders', {
+					'X-Parse-Application-Id': '',
+					'X-Parse-REST-API-Key': '',
+				});
 
 angular.module('hotelmgr').value('defaultHotel', {
 	name: 'config default',

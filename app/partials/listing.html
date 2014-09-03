@@ -1,16 +1,40 @@
-<div ng-controller="listingController">
-	<div class="row">
-		<div class="col-md-4">
-			<button class="btn btn-default btn-lg" ng-click="gotoCreate()">Create</button>
-		</div>
-		<div class="col-md-8">
-			<input type="text" placeholder="enter search term" ng-model="searchTerm" class="form-control" />
-		</div>
-	</div>
-	<hr/>
-	<br/>
-	<div ng-repeat="item in hotels | filter : searchTerm | orderBy : 'rating' : true">
-		<hotel-display hotel="item" desc-limit="20" up-vote="upVote(item)" down-vote="downVote(item)"></hotel-display>
-	</div>
+<div>
+	<div class="col-md-9">
+		<div ng-controller="listingController">
+			<div class="row">
+				<div class="col-md-4">
+					<button class="btn btn-default btn-lg" ng-click="gotoCreate()">Create</button>
+				</div>
+				<div class="col-md-8">
+					<input type="text" placeholder="enter search term" ng-model="searchTerm" class="form-control" />
+				</div>
+			</div>
+			<hr/>
+			<br/>
+			<div ng-init="pageNum=0">
+				<div class="pull-left"><a href=""  ng-click="pageNum = pageNum - 1">Prev</a></div>
+				<div class="pull-right"><a href="" ng-click="pageNum = pageNum + 1">Next</a></div>
+				<div>{{pageNum}}</div>
+			</div>
+			<div ng-repeat="item in hotels | filter : searchTerm | orderBy : 'rating' : true | paginate : pageNum">
+				<div class="row">
+					<!-- <div class="col-md-1">
+						<button class="btn btn-xs" ng-click="addFav(item)">Fav</button>
+					</div> -->
+					<div class="col-md-11">
+						<hotel-display hotel="item" desc-limit="20" up-vote="upVote(item)" down-vote="downVote(item)"></hotel-display>
+					</div>
+				</div>
+			</div>
 
+		</div>
+	</div>
+	<div class="col-md-3">
+		<div ng-controller="favController">
+			<h3>Favorites</h3>
+			<div ng-repeat="fav in favorites">
+				<div >{{fav.name}}</div>
+			</div>
+		</div>
+	</div>
 </div>

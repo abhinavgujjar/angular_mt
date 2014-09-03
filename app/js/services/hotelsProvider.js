@@ -1,4 +1,4 @@
-angular.module('hotelmgr').factory('hotelsProvider', function($http, $q) {
+angular.module('hotelmgr').factory('hotelsProvider', function($http, $q, parseHeaders) {
 
 	var selectedHotel;
 
@@ -8,12 +8,7 @@ angular.module('hotelmgr').factory('hotelsProvider', function($http, $q) {
 		getHotels: function() {
 			var deferred = $q.defer();
 
-			$http.get('https://api.parse.com/1/classes/hotels', {
-				headers: {
-					'X-Parse-Application-Id': '',
-					'X-Parse-REST-API-Key': '',
-				}
-			}).success(function(results) {
+			$http.get('data/hotels.json').success(function(results) {
 				deferred.resolve(results.results);
 			});
 
@@ -22,10 +17,7 @@ angular.module('hotelmgr').factory('hotelsProvider', function($http, $q) {
 		addHotel: function(hotel) {
 
 			$http.post('https://api.parse.com/1/classes/hotels', hotel, {
-				headers: {
-					'X-Parse-Application-Id': '',
-					'X-Parse-REST-API-Key': '',
-				}
+				headers: parseHeaders
 			});
 		},
 		setSelectedHotel: function(hotel) {
