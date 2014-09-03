@@ -18,9 +18,9 @@ angular.module('hotelmgr').controller('listingController',
 		votingService.downVote(hotel);
 	}
 
-	 hotelsProvider.getHotels(function(hotels){
+	 hotelsProvider.getHotels().then(function(hotels){
 	 	$scope.hotels = hotels;
-	 })
+	 });
 
 	$scope.gotoCreate = function(){
 		$location.url('/create');

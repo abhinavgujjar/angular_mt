@@ -5,6 +5,8 @@ angular.module('hotelmgr').controller('detailsController',
 
 	//console.log(hotelId);
 
-	$scope.hotel = hotelsProvider.getHotel(hotelId);
+	hotelsProvider.getHotel(hotelId).then(function(hotel){
+		$scope.hotel = hotel;
+	});
 
 });
