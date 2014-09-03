@@ -8,14 +8,25 @@ angular.module('hotelmgr').factory('hotelsProvider', function($http, $q) {
 		getHotels: function() {
 			var deferred = $q.defer();
 
-			$http.get('data/hotels.json').success(function(results) {
+			$http.get('https://api.parse.com/1/classes/hotels', {
+				headers: {
+					'X-Parse-Application-Id': '',
+					'X-Parse-REST-API-Key': '',
+				}
+			}).success(function(results) {
 				deferred.resolve(results.results);
 			});
 
 			return deferred.promise;
 		},
 		addHotel: function(hotel) {
-			hotels.push(hotel);
+
+			$http.post('https://api.parse.com/1/classes/hotels', hotel, {
+				headers: {
+					'X-Parse-Application-Id': '',
+					'X-Parse-REST-API-Key': '',
+				}
+			});
 		},
 		setSelectedHotel: function(hotel) {
 			selectedHotel = hotel

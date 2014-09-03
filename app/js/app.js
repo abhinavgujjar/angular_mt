@@ -49,3 +49,23 @@ angular.module('hotelmgr').directive('preview', function() {
 	}
 
 });
+
+
+
+
+angular.module('hotelmgr').directive('hotelDisplay', function() {
+
+	//directive definition object
+
+	return {
+		restrict: 'E',
+		templateUrl: 'partials/hoteldisplay.html',
+		scope: {
+			hotel : '=hotel',
+			descLimit : '@descLimit',
+			upVote : '&upVote',
+			downVote : '&downVote',
+		}
+	}
+
+});
