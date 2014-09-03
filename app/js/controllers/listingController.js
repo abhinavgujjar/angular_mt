@@ -1,5 +1,5 @@
 angular.module('hotelmgr').controller('listingController', 
-	function($scope, config, hotelsProvider, votingService, $location) {
+	function($scope, config, hotelsProvider, votingService, $location, $rootScope) {
 
 	$scope.descLimit = config.descLimit;
 
@@ -20,6 +20,10 @@ angular.module('hotelmgr').controller('listingController',
 
 	 hotelsProvider.getHotels().then(function(hotels){
 	 	$scope.hotels = hotels;
+
+	 	var title = '(' + hotels.length + ') hotels';
+
+	 	$scope.$emit('TITLE_CHANGED', title);
 	 });
 
 	$scope.gotoCreate = function(){

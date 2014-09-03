@@ -3,7 +3,7 @@
 <head>
 	<title>Basic angular application</title>
 	<link rel="stylesheet" href="components/bootstrap/dist/css/bootstrap.min.css"></head>
-<body ng-app="hotelmgr">
+<body ng-app="hotelmgr" ng-controller="navController">
 	<nav class="navbar navbar-default" role="navigation">
 		<div class="container-fluid">
 			<!-- Brand and toggle get grouped for better mobile display -->
@@ -19,6 +19,9 @@
 					</li>
 					<li>
 						<a href="#/create">Create</a>
+					</li>
+					<li>
+						<h2>{{title}}</h2>
 					</li>
 				</ul>
 			</div>
@@ -39,6 +42,7 @@
 	<script type="text/javascript" src="js/controllers/listingController.js"></script>
 	<script type="text/javascript" src="js/controllers/newController.js"></script>
 	<script type="text/javascript" src="js/controllers/detailsController.js"></script>
+	<script type="text/javascript" src="js/controllers/navController.js"></script>
 	<script type="text/javascript" src="js/services/hotelsProvider.js"></script>
 	<script type="text/javascript" src="js/services/votingService.js"></script>
 
